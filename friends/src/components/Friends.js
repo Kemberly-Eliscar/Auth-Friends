@@ -1,30 +1,16 @@
-import React from 'react';
-import moment from 'moment';
-import Loader from 'react-loader-spinner';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-class Friends extends React.Component {
-    state = {
-        Friends: []
-    };
-
-    componentDidMount() {
-        this.getData();
-    }
-
-    getData = () => {
+const Friends = () => {
+    useEffect(() => {
         axiosWithAuth()
-        .get('/data')
-        .then(res => {
-            this.setState({
-                Friend: res.data.data.filter(
-                    
-                )
-            })
-        })
-        .catch(err => console.log(err));
-    }
-}
+        .get('/friends')
+        .then(res => console.log)
+    })
 
+    return (
+        <div>SUCESS</div>
+    )
+}
 export default Friends;
